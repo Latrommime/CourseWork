@@ -12,6 +12,7 @@ namespace CourseWork.BLL
         {
             this.db = db;
         }
+
         public void Create(User item)
         {
             db.Users.Add(item);
@@ -61,7 +62,7 @@ namespace CourseWork.BLL
 
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChanges();
         }
     }
 }
