@@ -12,16 +12,23 @@ namespace CourseWork.BLL
         {
             this.db = db;
         }
-
+        
+        public void Update(User par)
+        {
+            db.Users.Find(par.Id).Password = par.Password;
+            Save();
+        }
         public void Create(User item)
         {
             db.Users.Add(item);
+            Save();
         }
 
         public void Delete(int id)
         {
             User user = db.Users.Find(id);
             if (user != null) db.Users.Remove(user);
+            Save();
         }
 
         public User Get(int id)
