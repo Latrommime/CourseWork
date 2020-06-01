@@ -7,6 +7,13 @@ namespace CourseWork.BLL
 {
     class UserRepository : IRepository<User>
     {
+        // ==========================================================
+
+                 
+
+
+
+            //   3333333333
         MyDbContext db;
         public UserRepository(MyDbContext db)
         {
