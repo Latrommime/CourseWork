@@ -18,6 +18,13 @@ namespace CourseWork.BLL
             db.Users.Add(item);
         }
 
+        public void Update(User item)
+        {
+            db.Users.Find(item.Id).Name = item.Name;
+            db.Users.Find(item.Id).Password = item.Password;
+            Save();
+        }
+
         public void Delete(int id)
         {
             User user = db.Users.Find(id);
