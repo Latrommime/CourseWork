@@ -10,6 +10,7 @@ namespace CourseWork.DAL
     {
         public int Id { get; private set; }
         public string Name { get; set; }
+        public string Password { get; set; }
         public int Balance { get; set; }
     }
 }

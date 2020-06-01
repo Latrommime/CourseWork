@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace CourseWork
 {
-    public partial class Form1 : Form
+    public partial class AddLotForm : Form
     {
-        public Form1()
+        public AddLotForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
