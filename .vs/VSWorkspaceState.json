@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CourseWork"
+    "\\CourseWork",
+    "\\CourseWork\\BLL",
+    "\\CourseWork\\DAL",
+    "\\CourseWork\\UI"
   ],
-  "SelectedNode": "\\CourseWork",
+  "SelectedNode": "\\CourseWork.sln",
   "PreviewInSolutionExplorer": false
 }

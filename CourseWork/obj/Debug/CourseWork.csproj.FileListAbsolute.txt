@@ -18,3 +18,15 @@ C:\Done\APS\CourseWork\CourseWork\obj\Debug\CourseWork.csproj.CoreCompileInputs.
 C:\Done\APS\CourseWork\CourseWork\obj\Debug\CourseWork.csproj.CopyComplete
 C:\Done\APS\CourseWork\CourseWork\obj\Debug\CourseWork.exe
 C:\Done\APS\CourseWork\CourseWork\obj\Debug\CourseWork.pdb
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.csprojAssemblyReference.cache
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.Acccount.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.AddLotForm.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.Auction.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.UI.BidForm.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.UI.EditLotForm.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.Form1.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.Properties.Resources.resources
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.csproj.GenerateResource.cache
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.csproj.CoreCompileInputs.cache
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.exe
+C:\Users\User\Source\Repos\Latrommime\CourseWork\CourseWork\obj\Debug\CourseWork.pdb
