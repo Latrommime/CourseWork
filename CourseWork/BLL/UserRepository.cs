@@ -47,5 +47,10 @@ namespace CourseWork.BLL
         {
             return db.Users;
         }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
