@@ -1,5 +1,6 @@
 ﻿using CourseWork.DAL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace CourseWork.BLL
@@ -46,6 +47,16 @@ namespace CourseWork.BLL
         public IEnumerable<User> GetAll()
         {
             return db.Users;
+        }
+
+        public IEnumerable<Lot> GetLots()
+        {
+            List<Lot> lots = new List<Lot>();
+            foreach(Lot lot in db.Lots)
+            {
+                lots.Add(lot);
+            }
+            return lots;
         }
 
         public void Save()

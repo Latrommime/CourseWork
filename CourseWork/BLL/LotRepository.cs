@@ -54,7 +54,7 @@ namespace CourseWork.BLL
             db.Lots.Find(item.Id).CurrentBid = item.CurrentBid;
             db.Lots.Find(item.Id).CurrentBidUserId = item.CurrentBidUserId;
             db.Lots.Find(item.Id).BuyerId = item.BuyerId;
-
+            db.Lots.Find(item.Id).SoldOut = item.SoldOut;
 
             OnChanged();
         }
