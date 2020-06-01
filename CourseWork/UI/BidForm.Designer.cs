@@ -248,6 +248,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "BidForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BidForm";
             this.Load += new System.EventHandler(this.BidForm_Load);
             this.ResumeLayout(false);
