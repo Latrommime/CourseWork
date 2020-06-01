@@ -11,6 +11,8 @@ namespace CourseWork.DAL
         public int SalerId { get; set; }
         public int BuyerId { get; set; }
 
+        public bool SoldOut { get; set; }
+
         public string Date { get; set; }
         public string StartTime { get; set; }
         public string EndTime { get; set; }

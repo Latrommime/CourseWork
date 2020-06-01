@@ -13,5 +13,6 @@ namespace CourseWork.BLL
 
         void Create(T item);
         void Delete(int id);
+        void Save();
     }
 }
