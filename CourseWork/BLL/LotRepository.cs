@@ -1,13 +1,16 @@
 ﻿using CourseWork.DAL;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 
 namespace CourseWork.BLL
 {
     class LotRepository : IRepository<Lot>
     {
         private MyDbContext db;
+
+        public delegate void UpdateHandler(object source, EventArgs args);
+
+        public event UpdateHandler LotUpdated;
 
         public LotRepository(MyDbContext db)
         {
@@ -17,12 +20,16 @@ namespace CourseWork.BLL
         public void Create(Lot item)
         {
             db.Lots.Add(item);
+            Save();
+            OnChanged();
         }
 
         public void Delete(int id)
         {
             Lot lot = db.Lots.Find(id);
             if (lot != null) db.Lots.Remove(lot);
+            Save();
+            OnChanged();
         }
 
         public Lot Get(int id)
@@ -37,7 +44,29 @@ namespace CourseWork.BLL
 
         public void Update(Lot item)
         {
-            throw new NotImplementedException();
+            db.Lots.Find(item.Id).Name = item.Name;
+            db.Lots.Find(item.Id).Description = item.Description;
+            db.Lots.Find(item.Id).SalerId = item.SalerId;
+            db.Lots.Find(item.Id).Date = item.Date;
+            db.Lots.Find(item.Id).StartTime = item.StartTime;
+            db.Lots.Find(item.Id).EndTime = item.EndTime;
+            db.Lots.Find(item.Id).MinBid = item.MinBid;
+            db.Lots.Find(item.Id).CurrentBid = item.CurrentBid;
+            db.Lots.Find(item.Id).CurrentBidUserId = item.CurrentBidUserId;
+            db.Lots.Find(item.Id).BuyerId = item.BuyerId;
+
+
+            OnChanged();
+        }
+
+        public void Save()
+        {
+            db.SaveChanges();
+        }
+
+        public void OnChanged()
+        {
+            if (LotUpdated != null) LotUpdated(this, EventArgs.Empty);
         }
     }
 }
