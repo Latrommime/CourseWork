@@ -2,7 +2,7 @@
 
 namespace CourseWork.DAL
 {
-    class Lot
+    public class Lot
     {
         [Key]
         public int Id { get; private set; }
@@ -14,8 +14,8 @@ namespace CourseWork.DAL
         public bool SoldOut { get; set; }
 
         public string Date { get; set; }
-        public string StartTime { get; set; }
-        public string EndTime { get; set; }
+        public int StartTime { get; set; }
+        public int EndTime { get; set; }
 
         public int MinBid { get; set; }
         public int CurrentBid { get; set; }
