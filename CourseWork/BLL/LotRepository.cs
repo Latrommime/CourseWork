@@ -1,37 +1,38 @@
 ﻿using CourseWork.DAL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity.Infrastructure;
 
 namespace CourseWork.BLL
 {
     class LotRepository : IRepository<Lot>
     {
+        private MyDbContext db;
+
+        public LotRepository(MyDbContext db)
+        {
+            this.db = db;
+        }
+
         public void Create(Lot item)
         {
-            throw new NotImplementedException();
+            db.Lots.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Lot lot = db.Lots.Find(id);
+            if (lot != null) db.Lots.Remove(lot);
         }
 
         public Lot Get(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Lot Get(string name)
-        {
-            throw new NotImplementedException();
+            return db.Lots.Find(id);
         }
 
         public IEnumerable<Lot> GetAll()
         {
-            throw new NotImplementedException();
+            return db.Lots;
         }
 
         public void Update(Lot item)

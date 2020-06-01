@@ -1,42 +1,51 @@
 ﻿using CourseWork.DAL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CourseWork.BLL
 {
     class UserRepository : IRepository<User>
     {
+        MyDbContext db;
+        public UserRepository(MyDbContext db)
+        {
+            this.db = db;
+        }
         public void Create(User item)
         {
-            throw new NotImplementedException();
+            db.Users.Add(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            User user = db.Users.Find(id);
+            if (user != null) db.Users.Remove(user);
         }
 
         public User Get(int id)
         {
-            throw new NotImplementedException();
+            return db.Users.Find(id);
         }
 
         public User Get(string name)
         {
-            throw new NotImplementedException();
+            User user = null;
+            foreach (User u in db.Users)
+            {
+                if (u.Name == name) user = u;
+            }
+            if (user != null) return user;
+            else
+            {
+                Create(new User() { Name = name });
+                db.SaveChanges();
+                return Get(name);
+            }
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Update(User item)
-        {
-            throw new NotImplementedException();
+            return db.Users;
         }
     }
 }

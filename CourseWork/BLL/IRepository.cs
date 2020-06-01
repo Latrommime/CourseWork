@@ -10,10 +10,8 @@ namespace CourseWork.BLL
     {
         IEnumerable<T> GetAll();
         T Get(int id);
-        T Get(string name);
 
         void Create(T item);
         void Delete(int id);
-        void Update(T item);
     }
 }
