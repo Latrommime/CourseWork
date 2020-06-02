@@ -11,15 +11,18 @@ namespace CourseWork.UI
         Lot lot;
         User user;
         Auction auction;
-        static MyDbContext db = new MyDbContext();
-        LotRepository lotRepository = new LotRepository(db);
-        UserRepository userRepository = new UserRepository(db);
+        MyDbContext db;
+        LotRepository lotRepository;
+        UserRepository userRepository;
 
         private int maxTimeLeftInMinutes = 1;
         private float timeLeft;
 
-        public BidForm(Lot lot, User user, Auction auction)
+        public BidForm(MyDbContext db, Lot lot, User user, Auction auction)
         {
+            this.db = db;
+            lotRepository = new LotRepository(db);
+            userRepository = new UserRepository(db);
             InitializeComponent();
             this.lot = lot;
             this.user = user;
