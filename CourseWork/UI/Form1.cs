@@ -1,5 +1,6 @@
 ﻿using CourseWork.BLL;
 using CourseWork.DAL;
+using CourseWork.UI;
 using System;
 using System.Windows.Forms;
 
@@ -25,6 +26,11 @@ namespace CourseWork
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //testing here
+            this.Hide();
+            new BidForm(new Lot { Name = "New lot", Date = "21-6-2020", MinBid = 100 }, new User() { Balance = 20000 }).Show();
+            //end testing
+
             if (textBox1.Text.Length > 0)
             {
                 user = userRepository.Get(textBox1.Text);
