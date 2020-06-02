@@ -35,6 +35,11 @@ namespace CourseWork
             Update_Balance();
         }
 
+        public void Update_User()
+        {
+            user = userRepository.Get(user.Id);
+        }
+
         public void Update_LotsFromData()
         {
             Update_Balance();
@@ -47,7 +52,7 @@ namespace CourseWork
 
             foreach (Lot lot in lots)
             {
-                if (lot.SalerId == user.Id)
+                if (lot.SalerId == user.Id && lot.SoldOut != true)
                 {
                     myLots.Add(lot);
                 }

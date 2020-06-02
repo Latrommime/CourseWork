@@ -19,6 +19,7 @@ namespace CourseWork
         private List<Lot> lots;
         private User user;
         private LotRepository lotRepository = new LotRepository(new MyDbContext());
+        private UserRepository userRepository = new UserRepository(new MyDbContext());
 
         public Auction(Acccount acccount, User user)
         {
@@ -36,13 +37,18 @@ namespace CourseWork
             lots = lotRepository.GetAll().ToList();
         }
 
+        public void Update_User()
+        {
+            user = userRepository.Get(user.Id);
+        }
+
         public void Update_AvailableLots()
         {
             List<Lot> myLots = new List<Lot>();
 
             foreach (Lot lot in lots)
             {
-                if (lot.SalerId != user.Id && (DateTime.Now.Hour * 60 + DateTime.Now.Minute) > lot.StartTime && Convert.ToDateTime(lot.Date).Day == DateTime.Now.Day)
+                if (lot.SoldOut == false && lot.SalerId != user.Id && (DateTime.Now.Hour * 60 + DateTime.Now.Minute) > lot.StartTime && Convert.ToDateTime(lot.Date).Day == DateTime.Now.Day)
                 {
                     myLots.Add(lot);
                 }
@@ -76,9 +82,11 @@ namespace CourseWork
 
         private void Open_Account_Click(object sender, EventArgs e)
         {
+            acccount.Update_User();
             acccount.Update_LotsFromData();
             acccount.Update_MyLots();
             acccount.Update_BoughtLots();
+            acccount.Update_Balance();
             this.Hide();
             acccount.Show();
         }
@@ -96,7 +104,7 @@ namespace CourseWork
 
             Lot choosedLot = lotRepository.Get(indexInDataBase);
 
-            BidForm bidForm = new BidForm(choosedLot, user);
+            BidForm bidForm = new BidForm(choosedLot, user, this);
             bidForm.Show();
         }
     }
