@@ -47,6 +47,9 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Balance_label = new System.Windows.Forms.Label();
+            this.Replenish_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyLots)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BoughtLots)).BeginInit();
             this.SuspendLayout();
@@ -202,11 +205,44 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "CurrentBid";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(67, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 24);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Balance:";
+            // 
+            // Balance_label
+            // 
+            this.Balance_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Balance_label.Location = new System.Drawing.Point(185, 73);
+            this.Balance_label.Name = "Balance_label";
+            this.Balance_label.Size = new System.Drawing.Size(100, 24);
+            this.Balance_label.TabIndex = 7;
+            this.Balance_label.Text = "___________";
+            // 
+            // Replenish_Button
+            // 
+            this.Replenish_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Replenish_Button.Location = new System.Drawing.Point(302, 66);
+            this.Replenish_Button.Name = "Replenish_Button";
+            this.Replenish_Button.Size = new System.Drawing.Size(119, 39);
+            this.Replenish_Button.TabIndex = 8;
+            this.Replenish_Button.Text = "Replenish";
+            this.Replenish_Button.UseVisualStyleBackColor = true;
+            this.Replenish_Button.Click += new System.EventHandler(this.Replenish_Button_Click);
+            // 
             // Acccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 499);
+            this.Controls.Add(this.Replenish_Button);
+            this.Controls.Add(this.Balance_label);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView_BoughtLots);
             this.Controls.Add(this.UserName_label);
             this.Controls.Add(this.Edit_Button);
@@ -247,5 +283,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Balance_label;
+        private System.Windows.Forms.Button Replenish_Button;
     }
 }

@@ -26,7 +26,9 @@ namespace CourseWork
 
             this.user = user;
             this.acccount = acccount;
-            lots = lotRepository.GetAll().ToList();
+            Update_LotsFromData();
+            Update_AvailableLots();
+            Update_PlannedLots();
         }
 
         public void Update_LotsFromData()
