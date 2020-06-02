@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.date = new System.Windows.Forms.DateTimePicker();
+            this.Des_box = new System.Windows.Forms.RichTextBox();
+            this.Name_box = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,58 +40,41 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.hours_time = new System.Windows.Forms.NumericUpDown();
+            this.minutes_time = new System.Windows.Forms.NumericUpDown();
+            this.min_bid = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.hours_time)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minutes_time)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.min_bid)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // date
             // 
-            this.dateTimePicker1.CustomFormat = "dd-MM-yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(191, 221);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(267, 26);
-            this.dateTimePicker1.TabIndex = 19;
-            this.dateTimePicker1.Value = new System.DateTime(2020, 6, 2, 0, 0, 0, 0);
+            this.date.CustomFormat = "dd-MM-yyyy";
+            this.date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.date.Location = new System.Drawing.Point(191, 221);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(267, 26);
+            this.date.TabIndex = 19;
+            this.date.Value = new System.DateTime(2020, 6, 2, 0, 0, 0, 0);
+            this.date.ValueChanged += new System.EventHandler(this.date_ValueChanged);
             // 
-            // richTextBox1
+            // Des_box
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(191, 80);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(267, 107);
-            this.richTextBox1.TabIndex = 18;
-            this.richTextBox1.Text = "";
+            this.Des_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Des_box.Location = new System.Drawing.Point(191, 80);
+            this.Des_box.Name = "Des_box";
+            this.Des_box.Size = new System.Drawing.Size(267, 107);
+            this.Des_box.TabIndex = 18;
+            this.Des_box.Text = "";
             // 
-            // textBox2
+            // Name_box
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(251, 261);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(35, 26);
-            this.textBox2.TabIndex = 14;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.Location = new System.Drawing.Point(215, 328);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(95, 26);
-            this.textBox4.TabIndex = 15;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.Location = new System.Drawing.Point(191, 261);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(35, 26);
-            this.textBox3.TabIndex = 16;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(191, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(267, 26);
-            this.textBox1.TabIndex = 17;
+            this.Name_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Name_box.Location = new System.Drawing.Point(191, 42);
+            this.Name_box.Name = "Name_box";
+            this.Name_box.Size = new System.Drawing.Size(267, 26);
+            this.Name_box.TabIndex = 17;
             // 
             // label7
             // 
@@ -175,6 +155,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Edit";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -185,18 +166,65 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // hours_time
+            // 
+            this.hours_time.Location = new System.Drawing.Point(147, 267);
+            this.hours_time.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.hours_time.Name = "hours_time";
+            this.hours_time.Size = new System.Drawing.Size(60, 20);
+            this.hours_time.TabIndex = 20;
+            // 
+            // minutes_time
+            // 
+            this.minutes_time.Location = new System.Drawing.Point(251, 267);
+            this.minutes_time.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.minutes_time.Name = "minutes_time";
+            this.minutes_time.Size = new System.Drawing.Size(58, 20);
+            this.minutes_time.TabIndex = 21;
+            // 
+            // min_bid
+            // 
+            this.min_bid.Location = new System.Drawing.Point(213, 332);
+            this.min_bid.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.min_bid.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.min_bid.Name = "min_bid";
+            this.min_bid.Size = new System.Drawing.Size(120, 20);
+            this.min_bid.TabIndex = 22;
+            this.min_bid.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // EditLotForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 463);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.min_bid);
+            this.Controls.Add(this.minutes_time);
+            this.Controls.Add(this.hours_time);
+            this.Controls.Add(this.date);
+            this.Controls.Add(this.Des_box);
+            this.Controls.Add(this.Name_box);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -209,6 +237,9 @@
             this.Name = "EditLotForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditLotForm";
+            ((System.ComponentModel.ISupportInitialize)(this.hours_time)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minutes_time)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.min_bid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,12 +247,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker date;
+        private System.Windows.Forms.RichTextBox Des_box;
+        private System.Windows.Forms.TextBox Name_box;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -231,5 +259,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown hours_time;
+        private System.Windows.Forms.NumericUpDown minutes_time;
+        private System.Windows.Forms.NumericUpDown min_bid;
     }
 }

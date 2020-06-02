@@ -19,12 +19,12 @@ namespace CourseWork.UI
         public BidForm(Lot lot, User user)
         {
             InitializeComponent();
+            this.lot = lot;
+            this.user = user;
+
             timer1.Start();
             timeLeft = maxTimeLeftInMinutes * 60;
             panel1.Visible = false;
-
-            this.lot = lot;
-            this.user = user;
 
             LoadLot();
             lotRepository.LotUpdated += this.LotUpdated;
