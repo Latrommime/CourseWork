@@ -9,7 +9,7 @@ namespace CourseWork.UI
     {
         private int bid;
         Lot lot;
-        User user = new User() { Balance = 150 };
+        User user;
         static MyDbContext db = new MyDbContext();
         LotRepository lotRepository = new LotRepository(db);
         UserRepository userRepository = new UserRepository(db);
@@ -50,6 +50,7 @@ namespace CourseWork.UI
             textBox5.Text = lot.CurrentBid.ToString();
             if (lot.CurrentBid < lot.MinBid) textBox7.Text = lot.MinBid.ToString();
             else textBox7.Text = lot.CurrentBid.ToString();
+            bid = Convert.ToInt32(textBox7.Text) + (int)numericUpDown1.Value;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -92,7 +93,7 @@ namespace CourseWork.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-             bid = Convert.ToInt32(textBox7.Text) + (int)numericUpDown1.Value;
+            bid = Convert.ToInt32(textBox7.Text) + (int)numericUpDown1.Value;
             if (bid <= user.Balance && bid > lot.CurrentBid)
             {
               

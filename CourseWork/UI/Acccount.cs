@@ -37,6 +37,7 @@ namespace CourseWork
 
         public void Update_LotsFromData()
         {
+            Update_Balance();
             lots = lotRepository.GetAll().ToList();
         }
 
