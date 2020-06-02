@@ -65,6 +65,7 @@ namespace CourseWork.UI
                     button1.Enabled = false;
                     panel1.Visible = true;
                     lot.SoldOut = true;
+                    lot.BuyerId = user.Id;
                     LotUpdated(this, new EventArgs());
                     return;
                 }
@@ -96,7 +97,6 @@ namespace CourseWork.UI
                 lot.CurrentBidUserId = user.Id;
 
                 lot.EndTime = DateTime.Now.Hour * 60 + DateTime.Now.Minute + maxTimeLeftInMinutes;
-
                 timeLeft = maxTimeLeftInMinutes * 60;
                 lotRepository.Update(lot);
             }
