@@ -8,6 +8,7 @@ namespace CourseWork
 {
     public partial class Form1 : Form
     {
+
         private MyDbContext bas = new MyDbContext();
         UserRepository userRepository = new UserRepository(new MyDbContext());
         User user;
