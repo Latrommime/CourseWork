@@ -8,9 +8,9 @@ namespace CourseWork
 {
     public partial class Form1 : Form
     {
-
-        private MyDbContext bas = new MyDbContext();
+     //   private MyDbContext bas = new MyDbContext();
         UserRepository userRepository = new UserRepository(new MyDbContext());
+        LotRepository lotRepository = new LotRepository(new MyDbContext());
         User user;
         Acccount acccount;
         public Form1()
@@ -27,6 +27,12 @@ namespace CourseWork
 
         private void button1_Click(object sender, EventArgs e)
         {
+          
+            //testing here
+            this.Hide();
+            //new BidForm(new Lot { Name = "New lot", Date = "21-6-2020", MinBid = 100 }, new User() { Balance = 20000 }).Show();
+            //end testing
+
             if (textBox1.Text.Length > 0)
             {
                 user = userRepository.Get(textBox1.Text);
