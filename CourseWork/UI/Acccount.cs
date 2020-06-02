@@ -27,12 +27,17 @@ namespace CourseWork
             this.user = user;
             this.UserName_label.Text = user.Name;
 
-            lots = lotRepository.GetAll().ToList();
+            Update_LotsFromData();
             Update_MyLots();
             Update_BoughtLots();
         }
 
-        private void Update_MyLots()
+        public void Update_LotsFromData()
+        {
+            lots = lotRepository.GetAll().ToList();
+        }
+
+        public void Update_MyLots()
         {
             List<Lot> myLots = new List<Lot>();
 
@@ -51,7 +56,7 @@ namespace CourseWork
             }
         }
 
-        private void Update_BoughtLots()
+        public void Update_BoughtLots()
         {
             List<Lot> myLots = new List<Lot>();
 
@@ -75,6 +80,12 @@ namespace CourseWork
             if(auction == null)
             {
                 auction = new Auction(this, user);
+            }
+            else
+            {
+                auction.Update_LotsFromData();
+                auction.Update_AvailableLots();
+                auction.Update_PlannedLots();
             }
 
             this.Hide();

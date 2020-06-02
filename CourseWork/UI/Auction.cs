@@ -28,7 +28,12 @@ namespace CourseWork
             lots = lotRepository.GetAll().ToList();
         }
 
-        private void Update_AvailableLots()
+        public void Update_LotsFromData()
+        {
+            lots = lotRepository.GetAll().ToList();
+        }
+
+        public void Update_AvailableLots()
         {
             List<Lot> myLots = new List<Lot>();
 
@@ -47,8 +52,30 @@ namespace CourseWork
             }
         }
 
+        public void Update_PlannedLots()
+        {
+            List<Lot> myLots = new List<Lot>();
+
+            foreach (Lot lot in lots)
+            {
+                if (lot.SalerId != user.Id)
+                {
+                    myLots.Add(lot);
+                }
+            }
+
+            dataGridView_PlannedLots.Rows.Clear();
+            for (int i = 0; i < myLots.Count; i++)
+            {
+                dataGridView_PlannedLots.Rows.Add(myLots[i].Id.ToString(), myLots[i].Name, myLots[i].StartTime.ToString(), myLots[i].Date.ToString(), myLots[i].CurrentBid.ToString());
+            }
+        }
+
         private void Open_Account_Click(object sender, EventArgs e)
         {
+            acccount.Update_LotsFromData();
+            acccount.Update_MyLots();
+            acccount.Update_BoughtLots();
             this.Hide();
             acccount.Show();
         }
