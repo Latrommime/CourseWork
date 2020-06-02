@@ -10,18 +10,23 @@ namespace CourseWork.UI
         private int bid;
         Lot lot;
         User user;
-        static MyDbContext db = new MyDbContext();
-        LotRepository lotRepository = new LotRepository(db);
-        UserRepository userRepository = new UserRepository(db);
+        Auction auction;
+        MyDbContext db;
+        LotRepository lotRepository;
+        UserRepository userRepository;
 
         private int maxTimeLeftInMinutes = 1;
         private float timeLeft;
 
-        public BidForm(Lot lot, User user)
+        public BidForm(MyDbContext db, Lot lot, User user, Auction auction)
         {
+            this.db = db;
+            lotRepository = new LotRepository(db);
+            userRepository = new UserRepository(db);
             InitializeComponent();
             this.lot = lot;
             this.user = user;
+            this.auction = auction;
 
             timer1.Start();
             timeLeft = maxTimeLeftInMinutes * 60;
@@ -72,6 +77,9 @@ namespace CourseWork.UI
                     user.Balance -= bid;
                     userRepository.Update(user);
 
+                    auction.Update_User();
+                    auction.Update_LotsFromData();
+                    auction.Update_AvailableLots();
                     return;
                 }
 

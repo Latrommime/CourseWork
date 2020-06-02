@@ -17,13 +17,16 @@ namespace CourseWork
     {
         private User user;
         private List<Lot> lots;
-        LotRepository lotRepository = new LotRepository(new MyDbContext());
-        UserRepository userRepository = new UserRepository(new MyDbContext());
+        MyDbContext db = new MyDbContext();
+        LotRepository lotRepository;
+        UserRepository userRepository;
 
         private Auction auction;
 
         public Acccount(User user)
         {
+            lotRepository = new LotRepository(db);
+            userRepository = new UserRepository(db);
             InitializeComponent();
 
             this.user = user;
@@ -33,6 +36,11 @@ namespace CourseWork
             Update_MyLots();
             Update_BoughtLots();
             Update_Balance();
+        }
+
+        public void Update_User()
+        {
+            user = userRepository.Get(user.Id);
         }
 
         public void Update_LotsFromData()
@@ -47,7 +55,7 @@ namespace CourseWork
 
             foreach (Lot lot in lots)
             {
-                if (lot.SalerId == user.Id)
+                if (lot.SalerId == user.Id && lot.SoldOut != true)
                 {
                     myLots.Add(lot);
                 }
@@ -83,7 +91,7 @@ namespace CourseWork
         {
             if (auction == null)
             {
-                auction = new Auction(this, user);
+                auction = new Auction(db, this, user);
             }
             else
             {
