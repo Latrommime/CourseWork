@@ -16,5 +16,10 @@ namespace CourseWork
         {
             InitializeComponent();
         }
+
+        private void AddLotForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

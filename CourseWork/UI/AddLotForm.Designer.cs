@@ -209,6 +209,7 @@
             this.Name = "AddLotForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddLotForm";
+            this.Load += new System.EventHandler(this.AddLotForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
