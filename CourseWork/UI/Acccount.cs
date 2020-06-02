@@ -114,5 +114,10 @@ namespace CourseWork
             EditLotForm editLotForm = new EditLotForm(choosedLot);
             editLotForm.Show();
         }
+
+        private void Acccount_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

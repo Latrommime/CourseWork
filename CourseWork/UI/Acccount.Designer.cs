@@ -218,6 +218,7 @@
             this.Controls.Add(this.dataGridView_MyLots);
             this.Name = "Acccount";
             this.Text = "Acccount";
+            this.Load += new System.EventHandler(this.Acccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_MyLots)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BoughtLots)).EndInit();
             this.ResumeLayout(false);

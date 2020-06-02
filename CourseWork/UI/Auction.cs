@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CourseWork.BLL;
 using CourseWork.DAL;
+using CourseWork.UI;
 
 namespace CourseWork
 {
@@ -39,7 +40,7 @@ namespace CourseWork
 
             foreach (Lot lot in lots)
             {
-                if (lot.SalerId != user.Id)
+                if (lot.SalerId != user.Id && (DateTime.Now.Hour * 60 + DateTime.Now.Minute) > lot.StartTime && Convert.ToDateTime(lot.Date).Day == DateTime.Now.Day)
                 {
                     myLots.Add(lot);
                 }
@@ -58,7 +59,7 @@ namespace CourseWork
 
             foreach (Lot lot in lots)
             {
-                if (lot.SalerId != user.Id)
+                if (Convert.ToDateTime(lot.Date).Day != DateTime.Now.Day && DateTime.Now.Minute < lot.StartTime)
                 {
                     myLots.Add(lot);
                 }
@@ -78,6 +79,23 @@ namespace CourseWork
             acccount.Update_BoughtLots();
             this.Hide();
             acccount.Show();
+        }
+
+        private void Bid_Button_Click_1(object sender, EventArgs e)
+        {
+
+            if (dataGridView_AvailableLots.SelectedRows.Count > 1 && dataGridView_AvailableLots.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            int index = dataGridView_AvailableLots.SelectedRows[0].Index;
+            int indexInDataBase = Convert.ToInt32(dataGridView_AvailableLots[0, index].Value.ToString());
+
+            Lot choosedLot = lotRepository.Get(indexInDataBase);
+
+            BidForm bidForm = new BidForm(choosedLot, user);
+            bidForm.Show();
         }
     }
 }

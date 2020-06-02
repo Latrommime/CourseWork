@@ -97,5 +97,10 @@ namespace CourseWork
         {
 
         }
+
+        private void AddLotForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
