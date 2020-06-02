@@ -6,7 +6,7 @@ namespace CourseWork.BLL
 {
     class LotRepository : IRepository<Lot>
     {
-        private MyDbContext db;
+        private MyDbContext db = new MyDbContext();
 
         public delegate void UpdateHandler(object source, EventArgs args);
 
@@ -44,10 +44,10 @@ namespace CourseWork.BLL
 
         public void Update(Lot item)
         {
-            db.Lots.Find(item.Id).Name = item.Name;
-            db.Lots.Find(item.Id).Description = item.Description;
+            if (db.Lots.Find(item.Id).Name != null) db.Lots.Find(item.Id).Name = item.Name;
+            if (db.Lots.Find(item.Id).Description != null) db.Lots.Find(item.Id).Description = item.Description;
+            if (db.Lots.Find(item.Id).Date != null) db.Lots.Find(item.Id).Date = item.Date;
             db.Lots.Find(item.Id).SalerId = item.SalerId;
-            db.Lots.Find(item.Id).Date = item.Date;
             db.Lots.Find(item.Id).StartTime = item.StartTime;
             db.Lots.Find(item.Id).EndTime = item.EndTime;
             db.Lots.Find(item.Id).MinBid = item.MinBid;

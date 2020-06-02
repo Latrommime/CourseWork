@@ -15,7 +15,9 @@ namespace CourseWork.BLL
         
         public void Update(User par)
         {
+            db.Users.Find(par.Id).Name = par.Name;
             db.Users.Find(par.Id).Password = par.Password;
+            db.Users.Find(par.Id).Balance = par.Balance;
             Save();
         }
         public void Create(User item)
