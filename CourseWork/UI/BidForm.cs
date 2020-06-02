@@ -13,29 +13,22 @@ namespace CourseWork.UI
         LotRepository lotRepository = new LotRepository(db);
         UserRepository userRepository = new UserRepository(db);
 
-        private int _ticks = 0;
-        private int timeLeft;
-        private int maxTimeLeftInMinutes = 2;
-
-
+        private int maxTimeLeftInMinutes = 1;
+        private float timeLeft;
 
         public BidForm(Lot lot, User user)
         {
             InitializeComponent();
             timer1.Start();
+            timeLeft = maxTimeLeftInMinutes * 60;
+            panel1.Visible = false;
 
-            //TODO: change 
-            lotRepository.Create(lot);
-            this.lot = lotRepository.Get(lot.Id);
-            
-            userRepository.Create(user); //TODO: change to this.user = user;
-            this.user = userRepository.Get(user.Name);
-            // end 
+            this.lot = lot;
+            this.user = user;
 
             LoadLot();
             lotRepository.LotUpdated += this.LotUpdated;
         }
-
 
         private void BidForm_Load(object sender, EventArgs e)
         {
@@ -50,22 +43,38 @@ namespace CourseWork.UI
             textBox3.Text = (lot.StartTime / 60).ToString();//hours
             textBox2.Text = (lot.StartTime % 60).ToString();//minutes
             textBox4.Text = lot.MinBid.ToString();
-            if (textBox6.Text == String.Empty) textBox6.Text = ((lot.EndTime - lot.StartTime) * 60).ToString();
-            else textBox6.Text = timeLeft.ToString();
+            if (lot.MinBid >= lot.CurrentBid) textBox6.Text = (60 * maxTimeLeftInMinutes).ToString();
+            else textBox6.Text = ((int)timeLeft).ToString();
             dateTimePicker1.Value = Convert.ToDateTime(lot.Date);
             textBox5.Text = lot.CurrentBid.ToString();
             if (lot.CurrentBid < lot.MinBid) textBox7.Text = lot.MinBid.ToString();
             else textBox7.Text = lot.CurrentBid.ToString();
         }
 
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timeLeft = (Convert.ToInt32(textBox6.Text));
-            if (timeLeft > 0) textBox6.Text = Convert.ToString(timeLeft - 0.5);
-            LotUpdated(this, new EventArgs());
-            _ticks = 0;
-            _ticks = DateTime.Now.Second;
+            if (!lot.SoldOut)
+            {
+                if (lot.MinBid < lot.CurrentBid && timeLeft > 0f)
+                {
+                    timeLeft -= 0.5f;
+                    textBox6.Text = Convert.ToString(timeLeft);
+                }
+                else if (timeLeft <= 0f)
+                {
+                    button1.Enabled = false;
+                    panel1.Visible = true;
+                    lot.SoldOut = true;
+                    lot.BuyerId = user.Id;
+                    LotUpdated(this, new EventArgs());
+                    return;
+                }
+
+                LotUpdated(this, new EventArgs());
+
+                if (lot.CurrentBidUserId == user.Id) button1.Enabled = false;
+                else button1.Enabled = true;
+            }
         }
 
         private void LotUpdated(object sender, EventArgs e)
@@ -85,9 +94,9 @@ namespace CourseWork.UI
                 user.Balance -= bid;
                 userRepository.Update(user);
                 lot.CurrentBid = bid;
-                if (lot.EndTime == 0)
-                    lot.EndTime = DateTime.Now.Hour * 60 + DateTime.Now.Minute + maxTimeLeftInMinutes;
-                else lot.EndTime += maxTimeLeftInMinutes;
+                lot.CurrentBidUserId = user.Id;
+
+                lot.EndTime = DateTime.Now.Hour * 60 + DateTime.Now.Minute + maxTimeLeftInMinutes;
                 timeLeft = maxTimeLeftInMinutes * 60;
                 lotRepository.Update(lot);
             }
