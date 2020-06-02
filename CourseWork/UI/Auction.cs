@@ -18,11 +18,15 @@ namespace CourseWork
         private Acccount acccount;
         private List<Lot> lots;
         private User user;
-        private LotRepository lotRepository = new LotRepository(new MyDbContext());
-        private UserRepository userRepository = new UserRepository(new MyDbContext());
+        MyDbContext db;
+        private LotRepository lotRepository;
+        private UserRepository userRepository;
 
-        public Auction(Acccount acccount, User user)
+        public Auction(MyDbContext db, Acccount acccount, User user)
         {
+            this.db = db;
+            lotRepository = new LotRepository(db);
+            userRepository = new UserRepository(db);
             InitializeComponent();
 
             this.user = user;
@@ -104,7 +108,7 @@ namespace CourseWork
 
             Lot choosedLot = lotRepository.Get(indexInDataBase);
 
-            BidForm bidForm = new BidForm(choosedLot, user, this);
+            BidForm bidForm = new BidForm(db, choosedLot, user, this);
             bidForm.Show();
         }
     }

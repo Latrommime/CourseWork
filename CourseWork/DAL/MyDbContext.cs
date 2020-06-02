@@ -3,7 +3,7 @@ using System.Data.Entity;
 
 namespace CourseWork
 {
-    class MyDbContext : DbContext
+    public class MyDbContext : DbContext
     {
         public MyDbContext()
               : base("name=MyDbContext") { }
