@@ -18,6 +18,7 @@ namespace CourseWork
         private User user;
         private List<Lot> lots;
         LotRepository lotRepository = new LotRepository(new MyDbContext());
+        UserRepository userRepository = new UserRepository(new MyDbContext());
 
         private Auction auction;
 
@@ -31,10 +32,12 @@ namespace CourseWork
             Update_LotsFromData();
             Update_MyLots();
             Update_BoughtLots();
+            Update_Balance();
         }
 
         public void Update_LotsFromData()
         {
+            Update_Balance();
             lots = lotRepository.GetAll().ToList();
         }
 
@@ -118,6 +121,18 @@ namespace CourseWork
         private void Acccount_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Replenish_Button_Click(object sender, EventArgs e)
+        {
+            user.Balance += 1000;
+            Update_Balance();
+            userRepository.Update(user);
+        }
+
+        public void Update_Balance()
+        {
+            Balance_label.Text = user.Balance.ToString();
         }
     }
 }
