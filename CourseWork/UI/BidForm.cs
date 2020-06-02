@@ -7,6 +7,7 @@ namespace CourseWork.UI
 {
     public partial class BidForm : Form
     {
+        private int bid;
         Lot lot;
         User user = new User() { Balance = 150 };
         static MyDbContext db = new MyDbContext();
@@ -66,7 +67,10 @@ namespace CourseWork.UI
                     panel1.Visible = true;
                     lot.SoldOut = true;
                     lot.BuyerId = user.Id;
-                    LotUpdated(this, new EventArgs());
+                    lotRepository.Update(lot);
+                    user.Balance -= bid;
+                    userRepository.Update(user);
+
                     return;
                 }
 
@@ -88,11 +92,10 @@ namespace CourseWork.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int bid = Convert.ToInt32(textBox7.Text) + (int)numericUpDown1.Value;
+             bid = Convert.ToInt32(textBox7.Text) + (int)numericUpDown1.Value;
             if (bid <= user.Balance && bid > lot.CurrentBid)
             {
-                user.Balance -= bid;
-                userRepository.Update(user);
+              
                 lot.CurrentBid = bid;
                 lot.CurrentBidUserId = user.Id;
 
