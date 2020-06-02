@@ -207,6 +207,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "EditLotForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditLotForm";
             this.ResumeLayout(false);
             this.PerformLayout();

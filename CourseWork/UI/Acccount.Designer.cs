@@ -36,6 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.UserName_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -117,11 +118,21 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "User name: ";
             // 
+            // UserName_label
+            // 
+            this.UserName_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UserName_label.Location = new System.Drawing.Point(185, 35);
+            this.UserName_label.Name = "UserName_label";
+            this.UserName_label.Size = new System.Drawing.Size(100, 23);
+            this.UserName_label.TabIndex = 4;
+            this.UserName_label.Text = "_____________";
+            // 
             // Acccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 499);
+            this.Controls.Add(this.UserName_label);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -131,7 +142,9 @@
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Acccount";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acccount";
+            this.Load += new System.EventHandler(this.Acccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -149,5 +162,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label UserName_label;
     }
 }
