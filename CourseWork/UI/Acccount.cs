@@ -17,13 +17,16 @@ namespace CourseWork
     {
         private User user;
         private List<Lot> lots;
-        LotRepository lotRepository = new LotRepository(new MyDbContext());
-        UserRepository userRepository = new UserRepository(new MyDbContext());
+        MyDbContext db = new MyDbContext();
+        LotRepository lotRepository;
+        UserRepository userRepository;
 
         private Auction auction;
 
         public Acccount(User user)
         {
+            lotRepository = new LotRepository(db);
+            userRepository = new UserRepository(db);
             InitializeComponent();
 
             this.user = user;
@@ -88,7 +91,7 @@ namespace CourseWork
         {
             if (auction == null)
             {
-                auction = new Auction(this, user);
+                auction = new Auction(db, this, user);
             }
             else
             {
