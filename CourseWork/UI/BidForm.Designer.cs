@@ -58,7 +58,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(207, 26);
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.Value = new System.DateTime(2020, 6, 2, 0, 0, 0, 0);
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // richTextBox1
             // 
@@ -69,7 +68,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(267, 107);
             this.richTextBox1.TabIndex = 16;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -79,7 +77,6 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(35, 26);
             this.textBox2.TabIndex = 12;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox4
             // 
@@ -89,7 +86,6 @@
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(95, 26);
             this.textBox4.TabIndex = 13;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox3
             // 
@@ -99,7 +95,6 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(35, 26);
             this.textBox3.TabIndex = 14;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label7
             // 
@@ -179,7 +174,6 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(267, 26);
             this.textBox1.TabIndex = 15;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label8
             // 
@@ -199,7 +193,6 @@
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(96, 26);
             this.textBox5.TabIndex = 13;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label9
             // 
