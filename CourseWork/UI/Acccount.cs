@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CourseWork.BLL;
 using CourseWork.DAL;
+using CourseWork.UI;
 
 namespace CourseWork
 {
@@ -90,6 +91,28 @@ namespace CourseWork
 
             this.Hide();
             auction.Show();
+        }
+
+        private void Add_Button_Click(object sender, EventArgs e)
+        {
+            AddLotForm addLotForm = new AddLotForm(user);
+            addLotForm.Show();
+        }
+
+        private void Edit_Button_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_MyLots.SelectedRows.Count != 1)
+            {
+                return;
+            }
+
+            int index = dataGridView_MyLots.SelectedRows[0].Index;
+            int indexInDataBase = Convert.ToInt32(dataGridView_MyLots[0, index].Value.ToString());
+
+            Lot choosedLot = lotRepository.Get(indexInDataBase);
+
+            EditLotForm editLotForm = new EditLotForm(choosedLot);
+            editLotForm.Show();
         }
     }
 }

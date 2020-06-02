@@ -31,7 +31,7 @@
             this.Open_Account = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Bid_Button = new System.Windows.Forms.Button();
             this.dataGridView_AvailableLots = new System.Windows.Forms.DataGridView();
             this.MyLot_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MyLot_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,15 +79,16 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Available Auctions";
             // 
-            // button3
+            // Bid_Button
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(660, 171);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 39);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Bid";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Bid_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Bid_Button.Location = new System.Drawing.Point(660, 171);
+            this.Bid_Button.Name = "Bid_Button";
+            this.Bid_Button.Size = new System.Drawing.Size(84, 39);
+            this.Bid_Button.TabIndex = 8;
+            this.Bid_Button.Text = "Bid";
+            this.Bid_Button.UseVisualStyleBackColor = true;
+            this.Bid_Button.Click += new System.EventHandler(this.Bid_Button_Click);
             // 
             // dataGridView_AvailableLots
             // 
@@ -174,7 +175,7 @@
             this.ClientSize = new System.Drawing.Size(800, 507);
             this.Controls.Add(this.dataGridView_PlannedLots);
             this.Controls.Add(this.dataGridView_AvailableLots);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Bid_Button);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Open_Account);
@@ -192,7 +193,7 @@
         private System.Windows.Forms.Button Open_Account;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Bid_Button;
         private System.Windows.Forms.DataGridView dataGridView_AvailableLots;
         private System.Windows.Forms.DataGridViewTextBoxColumn MyLot_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn MyLot_Name;

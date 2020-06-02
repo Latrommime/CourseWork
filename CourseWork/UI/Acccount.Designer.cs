@@ -37,8 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Open_Auction = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Add_Button = new System.Windows.Forms.Button();
+            this.Edit_Button = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.UserName_label = new System.Windows.Forms.Label();
             this.dataGridView_BoughtLots = new System.Windows.Forms.DataGridView();
@@ -121,26 +121,28 @@
             this.Open_Auction.UseVisualStyleBackColor = true;
             this.Open_Auction.Click += new System.EventHandler(this.Open_Auction_Click);
             // 
-            // button2
+            // Add_Button
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(642, 164);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Add_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Add_Button.Location = new System.Drawing.Point(642, 164);
+            this.Add_Button.Name = "Add_Button";
+            this.Add_Button.Size = new System.Drawing.Size(84, 39);
+            this.Add_Button.TabIndex = 3;
+            this.Add_Button.Text = "Add";
+            this.Add_Button.UseVisualStyleBackColor = true;
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
             // 
-            // button3
+            // Edit_Button
             // 
-            this.button3.Enabled = false;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(642, 234);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 39);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Edit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Edit_Button.Enabled = false;
+            this.Edit_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Edit_Button.Location = new System.Drawing.Point(642, 234);
+            this.Edit_Button.Name = "Edit_Button";
+            this.Edit_Button.Size = new System.Drawing.Size(84, 39);
+            this.Edit_Button.TabIndex = 3;
+            this.Edit_Button.Text = "Edit";
+            this.Edit_Button.UseVisualStyleBackColor = true;
+            this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
             // 
             // label3
             // 
@@ -207,8 +209,8 @@
             this.ClientSize = new System.Drawing.Size(800, 499);
             this.Controls.Add(this.dataGridView_BoughtLots);
             this.Controls.Add(this.UserName_label);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Edit_Button);
+            this.Controls.Add(this.Add_Button);
             this.Controls.Add(this.Open_Auction);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -229,8 +231,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Open_Auction;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Add_Button;
+        private System.Windows.Forms.Button Edit_Button;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label UserName_label;
         private System.Windows.Forms.DataGridViewTextBoxColumn MyLot_Id;

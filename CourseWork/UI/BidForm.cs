@@ -20,7 +20,7 @@ namespace CourseWork.UI
         private int _ticks = 0;
         private int timeLeft;
 
-        public BidForm(Lot lot)
+        public BidForm(Lot lot, User user)
         {
 
             InitializeComponent();
