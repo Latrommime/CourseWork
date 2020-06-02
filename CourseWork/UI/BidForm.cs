@@ -25,8 +25,9 @@ namespace CourseWork.UI
             timer1.Start();
 
             //TODO: change 
-            this.lot = lotRepository.Get(9);
-
+            lotRepository.Create(lot);
+            this.lot = lotRepository.Get(lot.Id);
+            
             userRepository.Create(user); //TODO: change to this.user = user;
             this.user = userRepository.Get(user.Name);
             // end 
